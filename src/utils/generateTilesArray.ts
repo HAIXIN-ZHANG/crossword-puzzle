@@ -2,7 +2,6 @@ export const generateTilesArray = (): Array<string> => {
     let result = [];
     // To generate 100 tiles (can change n for generating different num of tiles)
     const tilesNum  = 100;
-
 	for(let i = 0; i < tilesNum; i++){
 		//random generate 0-25 num
    		let ranNum = Math.ceil(Math.random() * 25);

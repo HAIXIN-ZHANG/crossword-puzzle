@@ -1,10 +1,13 @@
 body {
 	font: 14px "Century Gothic", Futura, sans-serif;
 	margin: 20px;
+	background-color: aliceblue;
+	display:flex;
+	justify-content: center;
   }
 
-  ol, ul {
-	padding-left: 30px;
+  .game-header-wrapper {
+	  display: flex;
   }
 
   .board-container {
@@ -12,11 +15,6 @@ body {
 	  flex-wrap: wrap;
 	  width: 750px;
 	  height: 750px;
-  }
-
-
-  .status {
-	margin-bottom: 10px;
   }
 
   .square {
@@ -42,11 +40,32 @@ body {
 	background: #ddd;
   }
 
-  .game {
-	display: flex;
-	flex-direction: row;
+  .game-rules-title {
+	font-size: 16px;
+	font-weight: 700;
   }
 
-  .game-info {
+  .game-rules {
 	margin-left: 20px;
+  }
+
+  .game-rules-container {
+	width: 480px;
+  }
+
+  .game-info-container {
+	margin-top: 15px;
+	margin-left: 50px;
+	width: 220px;
+  }
+
+  .game-info-container span{
+	font-size: 16px;
+	color:darkslateblue;
+  }
+
+  .game-winner-title {
+	  font-size: 18px;
+	  font-weight: 700;
+	  text-align: center;
   }

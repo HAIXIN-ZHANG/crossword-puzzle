@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import Square from './Square';
-import { generateTilesArray } from '../utils/generateTilesArray';
 import { BoardProps, BoardStoreState } from '../types';
+import { generateTilesArray } from '../utils/generateTilesArray';
+import { getHorizontallyLetters, getVerticallyLetters, checkWhetherValidWord } from '../utils/handleCheckWord';
 import { readDictionary } from '../utils/readDictionary';
 import { isEmpty } from 'lodash';
 class Board extends Component<BoardProps, BoardStoreState> {
@@ -15,7 +16,7 @@ class Board extends Component<BoardProps, BoardStoreState> {
 			scoreA: 0,
 			scoreB: 0,
 			currentPlayer: 'Player A',
-			dictionaryWord: [],
+			dictionaryWord: []
 		};
 	}
 
@@ -27,12 +28,20 @@ class Board extends Component<BoardProps, BoardStoreState> {
 			dictionaryWord
 		});
 		this.handOutTilesToPlayer();
-		console.log(this.state.dictionaryWord);
-
 	}
 
-	componentDidUpdate() {
-		console.log(this.state);
+	calculateWinner = () => {
+		if (isEmpty(this.state.rackA) && isEmpty(this.state.rackB) && isEmpty(this.state.tilesBag)) {
+			if(this.state.scoreA > this.state.scoreB) {
+				return 'winner is PlayerA';
+			}
+			if(this.state.scoreA < this.state.scoreB) {
+				return 'winner is PlayerB';
+			}
+			if(this.state.scoreA === this.state.scoreB) {
+				return 'No winner';
+			}
+		}
 	}
 
 	handOutTilesToPlayer = async () => {
@@ -53,16 +62,22 @@ class Board extends Component<BoardProps, BoardStoreState> {
 
 	handleClick = (i: number) => {
 		const squares = this.state.squares;
+		const dictionaryWord = this.state.dictionaryWord;
+		const winner = this.calculateWinner();
+		if(winner) return;
 		if (squares[i]) return;
-		if (isEmpty(this.state.rackA) && isEmpty(this.state.rackB) && isEmpty(this.state.tilesBag)) return;
 		if(this.state.currentPlayer === 'Player A') {
 			let rackForA = this.state.rackA;
 			if(!isEmpty(rackForA)) {
+				const horizontallyWordArray = getHorizontallyLetters(squares, i);
+				const verticallyWordArray = getVerticallyLetters(squares, i);
+				const score = checkWhetherValidWord(horizontallyWordArray, verticallyWordArray, dictionaryWord);
 				squares[i] = rackForA[0];
 				rackForA.shift();
 				this.setState({
 					squares,
-					rackA: rackForA
+					rackA: rackForA,
+					scoreA: this.state.scoreA + score
 				});
 			}else {
 				this.setState({
@@ -74,11 +89,15 @@ class Board extends Component<BoardProps, BoardStoreState> {
 		if(this.state.currentPlayer === 'Player B') {
 			let rackForB = this.state.rackB;
 			if(!isEmpty(rackForB)) {
+				const horizontallyWordArray = getHorizontallyLetters(squares, i);
+				const verticallyWordArray = getVerticallyLetters(squares, i);
+				const score = checkWhetherValidWord(horizontallyWordArray, verticallyWordArray, dictionaryWord);
 				squares[i] = rackForB[0];
 				rackForB.shift();
 				this.setState({
 					squares,
-					rackB: rackForB
+					rackB: rackForB,
+					scoreB: this.state.scoreB + score
 				})
 			}else {
 				this.setState({
@@ -105,37 +124,53 @@ class Board extends Component<BoardProps, BoardStoreState> {
 	}
 
 	render() {
-		console.log(this.state.tilesBag);
-		const winner = false;
-		// const winner = calculateWinner(this.state.squares);
-		// const status = winner
-		// 	? `Winner: ${winner}`
-		// 	: `Next player: ${this.state.isXNext ? 'X' : 'O'}`;
-
+		const winner = this.calculateWinner();
 		return (
 			<div>
-				<div className="status">{status}</div>
-				<div className="game-info">
-					<p>Game info goes here</p>
-				</div>
-				<div>
-					<p>Total tiles left:[{this.state.tilesBag.length}]</p>
-				</div>
-				<div className="game-info">
-					<p>Now is {this.state.currentPlayer} turn</p>
-				</div>
-				<div>
-					<p>Player A‘s next letter:[{this.state.rackA[0]}]</p>
-					<p>Player A‘s score:[{this.state.scoreA}]</p>
-				</div>
-				<div>
-					<p>Player B‘s next letter:[{this.state.rackB[0]}]</p>
-					<p>Player B‘s score:[{this.state.scoreB}]</p>
+				<div className="game-header-wrapper">
+					<div className="game-rules-container">
+						<div className="game-rules game-rules-title">
+							<p>Game info goes here</p>
+						</div>
+						<div className="game-rules">
+							<p>
+								Game Rules: Total 100 tiles. Each player get 7 tiles from the bag that they put on the rack.
+							</p>
+							<p>
+								Total 100 tiles. Each player get 7 tiles from the bag that they put on the rack.
+							</p>
+							<p>
+								The player gets points equal to the number of letters in the word.
+							</p>
+						</div>
+					</div>
+					<div className="game-info-container">
+						<div>
+							<p>Now is {this.state.currentPlayer} turn</p>
+						</div>
+						<div>
+							<span>Player A‘s next letter:</span>
+							<span>[{this.state.rackA[0]}]</span>
+							<p>Player A‘s score:[{this.state.scoreA}]</p>
+						</div>
+						<div>
+							<span>Player B‘s next letter:</span>
+							<span>[{this.state.rackB[0]}]</span>
+							<p>Player B‘s score:[{this.state.scoreB}]</p>
+						</div>
+					</div>
 				</div>
 				{!winner && (
 					<Fragment>
 						<div className="board-container">
 							{this.renderBoard()}
+						</div>
+					</Fragment>
+				)}
+				{winner && (
+					<Fragment>
+						<div className="game-winner-title">
+							{winner}
 						</div>
 					</Fragment>
 				)}
@@ -145,23 +180,3 @@ class Board extends Component<BoardProps, BoardStoreState> {
 }
 
 export default Board;
-
-// function calculateWinner(squares: any[]) {
-// 	const lines = [
-// 	  [0, 1, 2],
-// 	  [3, 4, 5],
-// 	  [6, 7, 8],
-// 	  [0, 3, 6],
-// 	  [1, 4, 7],
-// 	  [2, 5, 8],
-// 	  [0, 4, 8],
-// 	  [2, 4, 6],
-// 	];
-// 	for (let i = 0; i < lines.length; i++) {
-// 	  const [a, b, c] = lines[i];
-// 	  if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-// 		return squares[a];
-// 	  }
-// 	}
-// 	return null;
-// }
