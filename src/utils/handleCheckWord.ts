@@ -1,5 +1,6 @@
-import { isEmpty, words } from 'lodash';
+import { isEmpty } from 'lodash';
 
+// collecting a letter array form Horizontally way for helping judge whether player has established a valid word.
 export const getHorizontallyLetters = (squares: Array<string>, i: number) => {
     let horizontallyWordArray = [];
     let horizontallyIndexLeftWay = i;
@@ -22,7 +23,7 @@ export const getHorizontallyLetters = (squares: Array<string>, i: number) => {
     }
     return horizontallyWordArray;
 }
-
+// collecting a letter array form vertically way for helping judge whether player has established a valid word.
 export const getVerticallyLetters = (squares: Array<string>, i: number) => {
     let verticallyWordArray = [];
     let verticallyIndexUpWay = i;
@@ -46,6 +47,8 @@ export const getVerticallyLetters = (squares: Array<string>, i: number) => {
     return verticallyWordArray;
 }
 
+// To judge whether player has established a valid word by using array filter method to filter Dictionary.
+// User will get score of the word length if this word is a valid word.
 export const checkWhetherValidWord = (horizontallyWordArray: Array<string>, verticallyWordArray: Array<string>, dictionary: Array<string>) => {
     const horizontallyWord = horizontallyWordArray.toString().replaceAll(',', '');
     const verticallyWord = verticallyWordArray.toString().replaceAll(',', '');
