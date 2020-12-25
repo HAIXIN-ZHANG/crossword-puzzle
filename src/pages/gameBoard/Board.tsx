@@ -144,10 +144,14 @@ class Board extends Component<any, IBoardStoreState> {
 							</div>
 							<div>
 								<p>
-									Game Rules: Total 100 tiles. Each player get 7 tiles from the bag that they put on the rack.
+									Game Rules:
 								</p>
 								<p>
-									Total 100 tiles. Each player get 7 tiles from the bag that they put on the rack.
+									Total 100 tiles. Each player get 7 tiles from the bag.
+								</p>
+
+								<p>
+									The player A starts first to form a word.
 								</p>
 								<p>
 									The player gets points equal to the number of letters in the word.
