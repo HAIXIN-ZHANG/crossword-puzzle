@@ -1,10 +1,47 @@
-# Getting Started with Create React App
+# Getting Started with The Crossword Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Game introduction:
 
-## Available Scripts
+* A game Board with 15x15 square.
+* 100 tiles in a bag
+* 2 racks (1 for each player) to keep the tiles
+* English Word Dictionary (use this: https://github.com/dwyl/english-words)
+* There are 2 players. Each player get 7 tiles from the bag that they put on the rack.
+* Player A starts the game by forming a word on the board.
 
-In the project directory, you can run:
+Game rules:
+
+* Words can be of size 1 or more letters.
+* The word must be a valid dictionary word.
+* The player gets points equal to the number of letters in the word.
+* After the player has placed 7 tiles, the player can get more tile from the bag to make it up to 7 again.
+* Then it is the next player's turn. They do the same thing.
+
+This project was build by HAIXIN-ZHANG.
+# Install Node and npm
+
+Highly recommends you install Homebrew for installing other packages like Node.js or MongoDB.
+
+To install Homebrew, open your terminal run:
+
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+You can run below to check did you install Homebrew successfully:
+
+brew update
+
+After instal Homebrew successfully, you can install Node.js now, please run:
+
+brew install node
+
+Then please run:
+
+brew install npm
+
+You can run node -v and npm -v to check current version, if they are successful installed.
+### `npm install`
+
+It will automatically download the node packages for this game.
 
 ### `npm start`
 
@@ -14,57 +51,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

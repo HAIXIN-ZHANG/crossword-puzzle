@@ -21,8 +21,6 @@ export const getHorizontallyLetters = (squares: Array<string>, i: number) => {
         }
         horizontallyWordArray.push(squares[horizontallyIndexRightWay]);
     }
-
-    console.log('horizontallyWord',horizontallyWordArray );
     return horizontallyWordArray;
 }
 // collecting a letter array form vertically way for helping judge whether player has established a valid word.
@@ -46,7 +44,6 @@ export const getVerticallyLetters = (squares: Array<string>, i: number) => {
         }
         verticallyWordArray.push(squares[verticallyIndexDownWay]);
     }
-    console.log('verticallyWord',verticallyWordArray);
     return verticallyWordArray;
 }
 
@@ -55,10 +52,8 @@ export const getVerticallyLetters = (squares: Array<string>, i: number) => {
 export const checkWhetherValidWord = (horizontallyWordArray: Array<string>, verticallyWordArray: Array<string>, dictionary: Array<string>) => {
     const horizontallyWord: string = horizontallyWordArray.toString().replaceAll(',', '');
     const verticallyWord: string = verticallyWordArray.toString().replaceAll(',', '');
-    const isHorizontallyAWord: boolean = horizontallyWord.length <=2 ? false : !isEmpty(dictionary.filter(word => word === horizontallyWord));
-    const isVerticallyAWord: boolean = verticallyWord.length <= 2 ? false : !isEmpty(dictionary.filter(word => word === verticallyWord));
-
-
+    const isHorizontallyAWord: boolean = !isEmpty(dictionary.filter(word => word === horizontallyWord));
+    const isVerticallyAWord: boolean = !isEmpty(dictionary.filter(word => word === verticallyWord));
 
     if(isHorizontallyAWord && isVerticallyAWord) {
         return horizontallyWord.length + verticallyWord.length;
