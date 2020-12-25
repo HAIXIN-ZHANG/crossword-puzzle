@@ -2,9 +2,9 @@ import { isEmpty } from 'lodash';
 
 // collecting a letter array form Horizontally way for helping judge whether player has established a valid word.
 export const getHorizontallyLetters = (squares: Array<string>, i: number) => {
-    let horizontallyWordArray = [];
-    let horizontallyIndexLeftWay = i;
-    let horizontallyIndexRightWay = i;
+    let horizontallyWordArray: Array<string> = [];
+    let horizontallyIndexLeftWay: number = i;
+    let horizontallyIndexRightWay: number = i;
 
     horizontallyWordArray.push(squares[i]);
     while(horizontallyIndexLeftWay > i - (i % 15)) {
@@ -21,13 +21,15 @@ export const getHorizontallyLetters = (squares: Array<string>, i: number) => {
         }
         horizontallyWordArray.push(squares[horizontallyIndexRightWay]);
     }
+
+    console.log('horizontallyWord',horizontallyWordArray );
     return horizontallyWordArray;
 }
 // collecting a letter array form vertically way for helping judge whether player has established a valid word.
 export const getVerticallyLetters = (squares: Array<string>, i: number) => {
-    let verticallyWordArray = [];
-    let verticallyIndexUpWay = i;
-    let verticallyIndexDownWay = i;
+    let verticallyWordArray: Array<string> = [];
+    let verticallyIndexUpWay: number = i;
+    let verticallyIndexDownWay: number = i;
 
     verticallyWordArray.push(squares[i]);
     while(verticallyIndexUpWay >= 0) {
@@ -44,16 +46,19 @@ export const getVerticallyLetters = (squares: Array<string>, i: number) => {
         }
         verticallyWordArray.push(squares[verticallyIndexDownWay]);
     }
+    console.log('verticallyWord',verticallyWordArray);
     return verticallyWordArray;
 }
 
 // To judge whether player has established a valid word by using array filter method to filter Dictionary.
 // User will get score of the word length if this word is a valid word.
 export const checkWhetherValidWord = (horizontallyWordArray: Array<string>, verticallyWordArray: Array<string>, dictionary: Array<string>) => {
-    const horizontallyWord = horizontallyWordArray.toString().replaceAll(',', '');
-    const verticallyWord = verticallyWordArray.toString().replaceAll(',', '');
-    const isHorizontallyAWord = horizontallyWord.length < 2 ? false : !isEmpty(dictionary.filter(word => word === horizontallyWord));
-    const isVerticallyAWord = verticallyWord.length < 2 ? false : !isEmpty(dictionary.filter(word => word === verticallyWord));
+    const horizontallyWord: string = horizontallyWordArray.toString().replaceAll(',', '');
+    const verticallyWord: string = verticallyWordArray.toString().replaceAll(',', '');
+    const isHorizontallyAWord: boolean = horizontallyWord.length <=2 ? false : !isEmpty(dictionary.filter(word => word === horizontallyWord));
+    const isVerticallyAWord: boolean = verticallyWord.length <= 2 ? false : !isEmpty(dictionary.filter(word => word === verticallyWord));
+
+
 
     if(isHorizontallyAWord && isVerticallyAWord) {
         return horizontallyWord.length + verticallyWord.length;
