@@ -5,4 +5,4 @@ export const readDictionary = () => {
     // for enhance react performance, need to reduce useless data, only left key values are enough for this project.
     const parsedDate: Array<string> = Object.keys(dictionary);
     return parsedDate;
-}
+};
