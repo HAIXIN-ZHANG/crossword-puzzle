@@ -1,4 +1,4 @@
-import dictionary from '../words_dictionary.json';
+import dictionary from './words_dictionary.json';
 //read dictionary json file from local catalog
 export const readDictionary = () => {
     // Because this dictionary contain over 380,000 object items,
