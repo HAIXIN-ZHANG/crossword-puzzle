@@ -8,8 +8,6 @@ import { getHorizontallyLetters, getVerticallyLetters, checkWhetherValidWord } f
 import { readDictionary } from '../../utils/readDictionary';
 import { calculateWinner } from '../../utils/calculateWinner';
 import { handOutTilesToPlayer } from '../../utils/handleHandOutTiles';
-
-
 class Board extends Component<any, IBoardStoreState> {
 	constructor(props: any) {
 		super(props);
@@ -98,7 +96,7 @@ class Board extends Component<any, IBoardStoreState> {
 					squares,
 					notificationMessage: PLAYER_B_TURN,
 					playerBInfo: { ...this.state.playerAInfo, rack: rackB, score: currentPlayerBScore + score }
-				})
+				});
 			}else {
 				tilesAndNewBag = handOutTilesToPlayer(tilesBag);
 				this.setState({
