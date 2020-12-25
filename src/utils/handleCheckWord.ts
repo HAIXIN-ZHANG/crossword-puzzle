@@ -55,6 +55,9 @@ export const checkWhetherValidWord = (horizontallyWordArray: Array<string>, vert
     const isHorizontallyAWord: boolean = !isEmpty(dictionary.filter(word => word === horizontallyWord));
     const isVerticallyAWord: boolean = !isEmpty(dictionary.filter(word => word === verticallyWord));
 
+    if(isHorizontallyAWord && isVerticallyAWord && verticallyWord.length ===1 && horizontallyWord ===1) {
+        return 1;
+    }
     if(isHorizontallyAWord && isVerticallyAWord) {
         return horizontallyWord.length + verticallyWord.length;
     }else {
