@@ -10,5 +10,5 @@ export const calculateWinner = (scoreA: number, scoreB: number) => {
     if(scoreA === scoreB) {
         return NO_WINNER;
     };
-    return '';
+    return null;
 };
