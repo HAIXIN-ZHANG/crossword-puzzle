@@ -20,25 +20,27 @@ Game rules:
 This project was build by HAIXIN-ZHANG.
 # Install Node and npm
 
-Highly recommends you install Homebrew for installing other packages like Node.js or MongoDB.
+* Highly recommends you install Homebrew for installing other packages like Node.js or MongoDB.
 
-To install Homebrew, open your terminal run:
+* To install Homebrew, open your terminal run:
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-You can run below to check did you install Homebrew successfully:
+* You can run below to check did you install Homebrew successfully:
 
 brew update
 
-After instal Homebrew successfully, you can install Node.js now, please run:
+* After instal Homebrew successfully, you can install Node.js now, please run:
 
 brew install node
 
-Then please run:
+* Then please run:
 
 brew install npm
 
-You can run node -v and npm -v to check current version, if they are successful installed.
+* To check current version, if they are successful installed. You can run:
+
+node -v and npm -v
 ### `npm install`
 
 It will automatically download the node packages for this game.
