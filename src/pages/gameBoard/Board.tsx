@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Square from './components/Square';
 import { IBoardStoreState, IHandleHandOutTiles } from '../../interfaces';
 import { isEmpty } from 'lodash';
-import { PLAYER_A, PLAYER_B, PLAYER_A_TURN, PLAYER_B_TURN, SHUFFLE_AND_CHANG_PLAYER } from '../../constants'
+import { PLAYER_A, PLAYER_B, PLAYER_A_TURN, PLAYER_B_TURN } from '../../constants'
 import { generateTilesArray } from '../../utils/generateTilesArray';
 import { getHorizontallyLetters, getVerticallyLetters, checkWhetherValidWord } from '../../utils/handleCheckWord';
 import { readDictionary } from '../../utils/readDictionary';
@@ -79,7 +79,7 @@ class Board extends Component<any, IBoardStoreState> {
 					await this.setState({
 						currentPlayer: PLAYER_B,
 						tilesBag: tilesAndNewBag.newTilesBag,
-						notificationMessage: SHUFFLE_AND_CHANG_PLAYER,
+						notificationMessage: PLAYER_B_TURN,
 						playerBInfo: { ...this.state.playerBInfo, rack: tilesAndNewBag.rack }
 					});
 				};
@@ -103,7 +103,7 @@ class Board extends Component<any, IBoardStoreState> {
 					await this.setState({
 						currentPlayer: PLAYER_A,
 						tilesBag: tilesAndNewBag.newTilesBag,
-						notificationMessage: SHUFFLE_AND_CHANG_PLAYER,
+						notificationMessage: PLAYER_A_TURN,
 						playerAInfo: { ...this.state.playerAInfo, rack: tilesAndNewBag.rack }
 					});
 				};

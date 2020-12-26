@@ -5,4 +5,3 @@ export const PLAYER_B_IS_WINNER= 'Player B Is Winner';
 export const NO_WINNER= 'No Winner';
 export const PLAYER_A_TURN= 'Now is Player A Turn';
 export const PLAYER_B_TURN= 'Now is Player B Turn';
-export const SHUFFLE_AND_CHANG_PLAYER= 'Shuffling And Changing To Next Player';
