@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/crossword-puzzle/static/css/main.9c260869.chunk.css",
+    "main.css": "/crossword-puzzle/static/css/main.60180e59.chunk.css",
     "main.js": "/crossword-puzzle/static/js/main.9523d209.chunk.js",
     "main.js.map": "/crossword-puzzle/static/js/main.9523d209.chunk.js.map",
     "runtime-main.js": "/crossword-puzzle/static/js/runtime-main.db0d5a44.js",
@@ -8,13 +8,13 @@
     "static/js/2.59c40eac.chunk.js": "/crossword-puzzle/static/js/2.59c40eac.chunk.js",
     "static/js/2.59c40eac.chunk.js.map": "/crossword-puzzle/static/js/2.59c40eac.chunk.js.map",
     "index.html": "/crossword-puzzle/index.html",
-    "static/css/main.9c260869.chunk.css.map": "/crossword-puzzle/static/css/main.9c260869.chunk.css.map",
+    "static/css/main.60180e59.chunk.css.map": "/crossword-puzzle/static/css/main.60180e59.chunk.css.map",
     "static/js/2.59c40eac.chunk.js.LICENSE.txt": "/crossword-puzzle/static/js/2.59c40eac.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.db0d5a44.js",
     "static/js/2.59c40eac.chunk.js",
-    "static/css/main.9c260869.chunk.css",
+    "static/css/main.60180e59.chunk.css",
     "static/js/main.9523d209.chunk.js"
   ]
 }
