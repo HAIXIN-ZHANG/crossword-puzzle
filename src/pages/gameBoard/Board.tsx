@@ -74,14 +74,15 @@ class Board extends Component<any, IBoardStoreState> {
 					notificationMessage: PLAYER_A_TURN,
 					playerAInfo: { ...this.state.playerAInfo, rack: rackA, score: currentPlayerAScore + score }
 				});
-			}else {
-				tilesAndNewBag = handOutTilesToPlayer(tilesBag);
-				this.setState({
-					currentPlayer: PLAYER_B,
-					tilesBag: tilesAndNewBag.newTilesBag,
-					notificationMessage: SHUFFLE_AND_CHANG_PLAYER,
-					playerBInfo: { ...this.state.playerBInfo, rack: tilesAndNewBag.rack }
-				});
+				if(isEmpty(rackA)) {
+					tilesAndNewBag = handOutTilesToPlayer(tilesBag);
+					this.setState({
+						currentPlayer: PLAYER_B,
+						tilesBag: tilesAndNewBag.newTilesBag,
+						notificationMessage: SHUFFLE_AND_CHANG_PLAYER,
+						playerBInfo: { ...this.state.playerBInfo, rack: tilesAndNewBag.rack }
+					});
+				};
 			};
 		};
 
@@ -97,14 +98,15 @@ class Board extends Component<any, IBoardStoreState> {
 					notificationMessage: PLAYER_B_TURN,
 					playerBInfo: { ...this.state.playerAInfo, rack: rackB, score: currentPlayerBScore + score }
 				});
-			}else {
-				tilesAndNewBag = handOutTilesToPlayer(tilesBag);
-				this.setState({
-					currentPlayer: PLAYER_A,
-					tilesBag: tilesAndNewBag.newTilesBag,
-					notificationMessage: SHUFFLE_AND_CHANG_PLAYER,
-					playerAInfo: { ...this.state.playerAInfo, rack: tilesAndNewBag.rack }
-				});
+				if(isEmpty(rackB)) {
+					tilesAndNewBag = handOutTilesToPlayer(tilesBag);
+					this.setState({
+						currentPlayer: PLAYER_A,
+						tilesBag: tilesAndNewBag.newTilesBag,
+						notificationMessage: SHUFFLE_AND_CHANG_PLAYER,
+						playerAInfo: { ...this.state.playerAInfo, rack: tilesAndNewBag.rack }
+					});
+				};
 			};
 		};
 	};
