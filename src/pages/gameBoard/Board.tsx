@@ -42,7 +42,7 @@ class Board extends Component<any, IBoardStoreState> {
 	};
 
 
-	handleClick = (i: number) => {
+	handleClick = async (i: number) => {
 		const squares: Array<string> = this.state.squares;
 		const dictionaryWord: Array<string> = this.state.dictionaryWord;
 		const tilesBag: Array<string> = this.state.tilesBag;
@@ -69,14 +69,14 @@ class Board extends Component<any, IBoardStoreState> {
 				horizontallyWordArray = getHorizontallyLetters(squares, i);
 				verticallyWordArray = getVerticallyLetters(squares, i);
 				score = checkWhetherValidWord(horizontallyWordArray, verticallyWordArray, dictionaryWord);
-				this.setState({
+				await this.setState({
 					squares,
 					notificationMessage: PLAYER_A_TURN,
 					playerAInfo: { ...this.state.playerAInfo, rack: rackA, score: currentPlayerAScore + score }
 				});
 				if(isEmpty(rackA)) {
 					tilesAndNewBag = handOutTilesToPlayer(tilesBag);
-					this.setState({
+					await this.setState({
 						currentPlayer: PLAYER_B,
 						tilesBag: tilesAndNewBag.newTilesBag,
 						notificationMessage: SHUFFLE_AND_CHANG_PLAYER,
@@ -93,14 +93,14 @@ class Board extends Component<any, IBoardStoreState> {
 				horizontallyWordArray = getHorizontallyLetters(squares, i);
 				verticallyWordArray = getVerticallyLetters(squares, i);
 				score = checkWhetherValidWord(horizontallyWordArray, verticallyWordArray, dictionaryWord);
-				this.setState({
+				await this.setState({
 					squares,
 					notificationMessage: PLAYER_B_TURN,
 					playerBInfo: { ...this.state.playerAInfo, rack: rackB, score: currentPlayerBScore + score }
 				});
 				if(isEmpty(rackB)) {
 					tilesAndNewBag = handOutTilesToPlayer(tilesBag);
-					this.setState({
+					await this.setState({
 						currentPlayer: PLAYER_A,
 						tilesBag: tilesAndNewBag.newTilesBag,
 						notificationMessage: SHUFFLE_AND_CHANG_PLAYER,
