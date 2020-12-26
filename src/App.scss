@@ -10,6 +10,15 @@ body {
 	&-header-wrapper {
 		display: flex;
 		color:darkslateblue;
+
+		@media screen and (max-width: 576px) {
+			display: block;
+			width: 100%;
+		}
+		@media (min-width: 576px) and (max-width: 768px) {
+			display: block;
+			width: 100%;
+		}
 	}
 
 	&-notification-container {
@@ -25,6 +34,12 @@ body {
 			margin-left: 50px;
 			width: 300px;
 			font-size: 16px;
+
+			@media screen and (max-width: 768px) {
+				text-align: center;
+				width: 100%;
+				margin-left: 0px;
+			}
 		}
 
 		&-letter{
@@ -34,17 +49,16 @@ body {
 		}
 	}
 
-	&-board-container {
-		display: flex;
-		flex-wrap: wrap;
-		width: 750px;
-		height: 750px;
-	}
-
 	&-rules {
 		&-container {
 			margin-left: 25px;
 			width: 400px;
+
+			@media screen and (max-width: 768px) {
+				text-align: center;
+				width: 100%;
+				margin-left: 0px;
+			}
 		}
 
 		&-title {
@@ -52,11 +66,34 @@ body {
 			font-weight: 700;
 		}
 	}
+
+	&-board-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		width: 750px;
+		height: 750px;
+
+		@media screen and (max-width:576px) {
+			width: 375px;
+			height: 375px;
+		}
+		@media (min-width: 576px) and (max-width: 768px) {
+			width: 525px;
+			height: 525px;
+		}
+	}
+
 	&-winner-title {
 		font-size: 20px;
 		font-weight: 700;
 		margin-top: 300px;
 		text-align: center;
+
+		@media screen and (max-width:576px) {
+			width: 100%;
+			margin-top: 10px;
+		}
 	}
 }
 
@@ -66,19 +103,25 @@ body {
 	float: left;
 	font-size: 24px;
 	font-weight: bold;
-	line-height: 50px;
 	height: 50px;
 	margin-right: -1px;
 	margin-top: -1px;
 	padding: 0;
 	text-align: center;
 	width: 50px;
+
+	@media screen and (max-width:576px) {
+		height: 25px;
+		width: 25px;
+		font-size: 18px;
+	}
+	@media (min-width: 576px) and (max-width: 768px) {
+		width: 35px;
+		height: 35px;
+		font-size: 20px;
+	}
 }
 
 .square:focus {
 	outline: none;
-}
-
-.kbd-navigation .square:focus {
-	background: #ddd;
 }

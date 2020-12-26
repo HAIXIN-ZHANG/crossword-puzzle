@@ -18,9 +18,10 @@ Game rules:
 * Then it is the next player's turn. They do the same thing.
 
 This project was build by HAIXIN-ZHANG.
-# Install Node and npm
+# Install Node and Npm
+* Highly recommends to install VScode.
 
-* Highly recommends you install Homebrew for installing other packages like Node.js or MongoDB.
+* For MAC os users, highly recommends to install Homebrew for installing other packages like Node.js or MongoDB.
 
 * To install Homebrew, open your terminal run:
 
@@ -39,6 +40,10 @@ brew install node
 brew install npm
 
 * To check current version, if they are successful installed. You can run:
+
+For downloading node and npm installation package, please visit node official website https://nodejs.org/en/
+
+For downloading VScode installation package, please VScode official website https://code.visualstudio.com
 
 node -v and npm -v
 ### `npm install`
