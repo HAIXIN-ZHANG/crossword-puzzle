@@ -47,7 +47,7 @@ node -v and npm -v
 
 * For downloading VScode installation package, please visit VScode official website https://code.visualstudio.com
 
-* For MAC os user, if err shows "No Xcode or CLT version detected!". please download Command_Line_Tools_for_Xcode, visit Apple Developer website https://developer.apple.com/download/more/ to download it.
+* For MAC os users, if err shows "No Xcode or CLT version detected!". please download Command_Line_Tools_for_Xcode, visit Apple Developer website https://developer.apple.com/download/more/ to download it.
 
 ### `npm install`
 
