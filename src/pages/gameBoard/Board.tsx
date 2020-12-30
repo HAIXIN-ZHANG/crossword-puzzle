@@ -50,6 +50,7 @@ class Board extends Component<any, IBoardStoreState> {
 		const currentPlayerBScore: number = this.state.playerBInfo.score;
 		const rackA: Array<string> = this.state.playerAInfo.rack;
 		const rackB: Array<string> = this.state.playerBInfo.rack;
+		const currentPlayer: string  = this.state.currentPlayer;
 		let winner: string | null = null;
 		let score: number;
 		let horizontallyWordArray: Array<string> = [];
@@ -62,7 +63,7 @@ class Board extends Component<any, IBoardStoreState> {
 
 		if(!isEmpty(winner) || !isEmpty(squares[i])) return;
 
-		if(this.state.currentPlayer === PLAYER_A) {
+		if(currentPlayer === PLAYER_A) {
 			if(!isEmpty(rackA)) {
 				squares[i] = rackA[0];
 				rackA.shift();
@@ -86,7 +87,7 @@ class Board extends Component<any, IBoardStoreState> {
 			};
 		};
 
-		if(this.state.currentPlayer ===  PLAYER_B) {
+		if(currentPlayer ===  PLAYER_B) {
 			if(!isEmpty(rackB)) {
 				squares[i] = rackB[0];
 				rackB.shift();
