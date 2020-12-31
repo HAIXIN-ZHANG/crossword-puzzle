@@ -8,6 +8,7 @@ import { getHorizontallyLetters, getVerticallyLetters, checkWhetherValidWord } f
 import { readDictionary } from '../../utils/readDictionary';
 import { calculateWinner } from '../../utils/calculateWinner';
 import { handOutTilesToPlayer } from '../../utils/handleHandOutTiles';
+
 class Board extends Component<any, IBoardStoreState> {
 	constructor(props: any) {
 		super(props);
